@@ -7,13 +7,13 @@ unsigned int faStr1(const char *str) {
     int k = 0;
 
     for (int i = 0; str[i] != '\0'; ++i) {
-        if (str[i] <= '9' && str[i] >= '0') {
+        if (str[i] >= '0' && str[i] <= '9') {
             correct = false;
         }
         if (str[i] != ' ') {
             space = false;
         } else {
-            if (correct && !space) {
+            if (!space && !correct) {
                 ++k;
             }
             correct, space = true;
@@ -28,10 +28,10 @@ unsigned int faStr2(const char *str) {
     bool space = true, correct = false;
 
     for (int i = 0; str[i] != '\0'; i++) {
-        if (space != false && str[i] <= 'Z' && str[i] >= 'A') {
+        if (space != false && str[i] >= 'A' && str[i] <= 'Z') {
             correct = true;
         }
-        if (str[i] <= 'z' && str[i] >= 'A') {
+        if (str[i] >= 'A' && str[i] <= 'z') {
             space = false;
         } else if (str[i] != ' ') {
                 correct = false;
