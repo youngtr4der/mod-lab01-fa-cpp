@@ -24,7 +24,25 @@ unsigned int faStr1(const char *str) {
 }
 
 unsigned int faStr2(const char *str) {
-    return 0;
+    int k = 0; 
+    bool space = true, correct = false;
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (space != false && str[i] <= 'Z'; str[i] >= 'A') {
+            correct = true;
+        }
+        if (str[i] <= 'z' && str[i] >= 'A')
+            space = false;
+            else if (str[i] != ' ')
+                correct = false;
+                else {
+                    if (correct == true)
+                        k++;
+                }
+                correct = false, space = true;
+    }
+
+    return k;
 }
 
 unsigned int faStr3(const char *str) {
