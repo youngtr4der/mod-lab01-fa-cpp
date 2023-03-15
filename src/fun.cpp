@@ -4,7 +4,6 @@
 unsigned int faStr1(const char *str) {
     bool f1 = false, f2 = false;
     int res = 0;
-
     for (int i = 0; str[i] != '\0'; i++) {
         if ('0' <= str[i] && str[i] <= '9') {
             f1 = true;
@@ -18,7 +17,8 @@ unsigned int faStr1(const char *str) {
             if (f1 == false) {
                 res++;
             }
-            f1, f2 = false;
+            f1 = false;
+            f2 = false;
         }
     }
 
@@ -28,7 +28,6 @@ unsigned int faStr1(const char *str) {
 unsigned int faStr2(const char *str) {
     bool correct = false, space = true;
     int res = 0;
-
     for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] >= 'A' && str[i] <= 'Z' && space != false) {
             correct = true;
@@ -53,7 +52,6 @@ unsigned int faStr2(const char *str) {
 unsigned int faStr3(const char *str) {
     bool f = false;
     int summ = 0, count = 0;
-    
     for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] != ' ') {
             f = true;
