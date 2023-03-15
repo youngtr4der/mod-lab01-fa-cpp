@@ -3,20 +3,20 @@
 #include <cstring>
 
 unsigned int faStr1(const char *str) {
-    bool f1, f2 = true;
+    bool correct, space = true;
     int k = 0;
 
-    for (int i = 0; str[i] != '\0'; i++) {
+    for (int i = 0; str[i] != '\0'; ++i) {
         if (str[i] <= '9' && str[i] >= '0') {
-            f1 = false;
+            correct = false;
         }
         if (str[i] != ' ') {
-            f2 = false;
+            space = false;
         } else {
-            if (f1 == true && f2 == false ) {
-                k++;
+            if (correct && !space) {
+                ++k;
             }
-            f1, f2 = true;
+            correct, space = true;
         }
     }
 
@@ -28,7 +28,7 @@ unsigned int faStr2(const char *str) {
     bool space = true, correct = false;
 
     for (int i = 0; str[i] != '\0'; i++) {
-        if (space != false && str[i] <= 'Z'; str[i] >= 'A') {
+        if (space != false && str[i] <= 'Z' && str[i] >= 'A') {
             correct = true;
         }
         if (str[i] <= 'z' && str[i] >= 'A') {
