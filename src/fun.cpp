@@ -3,32 +3,34 @@
 
 unsigned int faStr1(const char *str) {
     bool f1 = false, f2 = false;
-    int k = 0;
+    int res = 0;
 
     for (int i = 0; str[i] != '\0'; i++) {
-        if (str[i] >= '0' && str[i] <= '9') {
+        if ('0' <= str[i] && str[i] <= '9') {
             f1 = true;
         }
+
         if (str[i] != ' ') {
             f2 = true;
         }
 
-        if (str[i] == ' '&& f2) {
-            if (!f2) {
-                k++;
+        if (str[i] == ' ' && f2 == true) {
+            if (f1 == false) {
+                res++;
             }
             f1, f2 = false;
         }
     }
-    return k;
+
+    return res;
 }
 
 unsigned int faStr2(const char *str) {
-    int k = 0; 
-    bool space = true, correct = false;
+    bool correct = false, space = true;
+    int res = 0;
 
     for (int i = 0; str[i] != '\0'; i++) {
-        if (space != false && str[i] >= 'A' && str[i] <= 'Z') {
+        if (str[i] >= 'A' && str[i] <= 'Z' && space != false) {
             correct = true;
         }
 
@@ -37,13 +39,15 @@ unsigned int faStr2(const char *str) {
         } else if (str[i] != ' ') {
             correct = false;
         } else {
-            if (correct)
-                k++;
+            if (correct == true) {
+                res++;
             }
-        correct = false, space = true;
+            correct = false;
+            space = true;
+        }
     }
 
-    return k;
+    return res;
 }
 
 unsigned int faStr3(const char *str) {
