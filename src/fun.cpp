@@ -1,5 +1,6 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
+#include <cstring>
 
 unsigned int faStr1(const char *str) {
     bool f1, f2 = false;
@@ -46,5 +47,27 @@ unsigned int faStr2(const char *str) {
 }
 
 unsigned int faStr3(const char *str) {
-    return 0;
+    bool f = false;
+    int summ = 0, count = 0;
+    
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] != ' ') {
+            f = true;
+            summ++;
+        }
+        if (str[i] == ' ') {
+            if (f != false) {
+                count++;
+            }
+            f = false;
+        }
+    }
+    if (f == true) {
+        count++;
+    }
+
+    double res = summ/count;
+    int result = static_cast<int>(res + 0.5);
+
+    return result;
 }
