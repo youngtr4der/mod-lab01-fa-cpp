@@ -1,25 +1,25 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
-#include <cstring>
 
 unsigned int faStr1(const char *str) {
-    bool correct, space = true;
+    bool f1 = false, f2 = false;
     int k = 0;
 
-    for (int i = 0; str[i] != '\0'; ++i) {
+    for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] >= '0' && str[i] <= '9') {
-            correct = false;
+            f1 = true;
         }
         if (str[i] != ' ') {
-            space = false;
-        } else {
-            if (!space && !correct) {
-                ++k;
+            f2 = true;
+        }
+
+        if (str[i] == ' '&& f2) {
+            if (!f2) {
+                k++;
             }
-            correct, space = true;
+            f1, f2 = false;
         }
     }
-
     return k;
 }
 
@@ -31,12 +31,13 @@ unsigned int faStr2(const char *str) {
         if (space != false && str[i] >= 'A' && str[i] <= 'Z') {
             correct = true;
         }
+
         if (str[i] >= 'A' && str[i] <= 'z') {
             space = false;
         } else if (str[i] != ' ') {
-                correct = false;
+            correct = false;
         } else {
-            if (correct == true)
+            if (correct)
                 k++;
             }
         correct = false, space = true;
